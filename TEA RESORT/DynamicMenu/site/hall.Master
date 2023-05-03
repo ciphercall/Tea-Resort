@@ -1,0 +1,577 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="hall.master.cs" Inherits="AdminPenalWatchCtg.site.hall" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        .hover {
+            color: #920707;
+        }
+
+            .hover:hover {
+                color: #d76868;
+                font-weight: bold;
+            }
+
+        .hand {
+            cursor: pointer;
+        }
+
+        .zoom {
+            cursor: zoom-in;
+        }
+
+        .all0 {
+            margin: 0 4px 0 4px !important;
+            padding: 0 !important;
+        }
+
+        .paddintLess {
+            padding: 5px !important;
+        }
+
+        .notification_count {
+            padding: 3px 10px 2px 10px;
+            background: #cc0000;
+            color: #ffffff;
+            font-weight: bold;
+            border-radius: 15px !important;
+            -moz-border-radius: 9px;
+            -webkit-border-radius: 9px;
+            position: absolute;
+            margin-top: -11px;
+            font-size: 11px;
+        }
+
+        div#OR {
+            height: 30px;
+            width: 30px;
+            border: 1px solid #C2C2C2;
+            border-radius: 50%;
+            font-weight: bold;
+            line-height: 28px;
+            text-align: center;
+            font-size: 12px;
+            float: right;
+            position: absolute;
+            right: -16px;
+            top: 40%;
+            z-index: 1;
+            background: #DFDFDF;
+        }
+    </style>
+</head>
+<body class="no-js">
+    <form id="form1" runat="server">
+        <header>
+            <div class="container top-sect">
+                <div class="navbar-header" style="background: #000000; border-bottom-left-radius: 5PX; border-bottom-right-radius: 5PX">
+                    <h1 class="navbar-brand" style="margin-top: -28px;">
+                        <a data-type='rd-navbar-brand' href="./">CHBS<small>Booking Onling</small></a>
+                    </h1>
+
+
+                    <a class="search-form_toggle" style="margin-right: -24px;" href="#">
+                        <ul class="nav navbar-nav" style="margin-top: -33px;">
+                            <li style="display: inline-block">
+                                <img src="images/email.png" class="hand blink" style="width: 30px; height: 30px" />&nbsp;&nbsp;&nbsp;&nbsp; 
+                            </li>
+                            <li style="display: inline-block">
+                                <img src="images/req.png" class="hand" style="width: 30px; height: 30px" />&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                            <li style="display: inline-block">
+                                <img src="images/noti.png" class="hand" style="width: 30px; height: 30px" />&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                            <li style="display: inline-block">
+                                <img src="images/chat.png" class="hand" style="width: 30px; height: 30px" /></li>
+                        </ul>
+                    </a>
+                </div>
+
+                <link href="../web/css/blink.css" rel="stylesheet" />
+                <div class="help-box text-right">
+                    <div class="text-right" style="float: right; margin-top: 6px;">
+                        <ul class="nav navbar-nav sf-menu">
+
+                            <li>
+                                <img src="images/email.png" class="hand blink" style="width: 30px; height: 30px" />&nbsp;&nbsp;&nbsp;&nbsp; 
+                            </li>
+                            <li>
+                                <img src="images/req.png" class="hand" style="width: 30px; height: 30px" />&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                            <li>
+                                <img src="images/noti.png" class="hand" style="width: 30px; height: 30px" />&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                            <li>
+                                <img src="images/chat.png" class="hand" style="width: 30px; height: 30px" /></li>
+                        </ul>
+                    </div>
+                    <p id="names">
+                        <asp:Label ID="Hello" runat="server" Text="Hello !"></asp:Label>
+                    </p>
+                    <a style="color: #e85252; font-size: 24pt;" id="UserName">
+                        <asp:Label ID="UserNM" runat="server" Text="Mr/Ms. XYZ"></asp:Label></a>
+                    <small><span>24 Hours  </span>we are service for you</small>
+                </div>
+
+            </div>
+
+
+            <div id="stuck_container" class="stuck_container">
+                <div class="container">
+                    <nav class="navbar navbar-default navbar-static-top pull-left">
+
+                        <div class="">
+                            <ul class="nav navbar-nav sf-menu" data-type="navbar">
+                                <li class="active">
+                                    <a href="home.aspx">HOME</a>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="hall">HALL</a>
+
+                                </li>
+                                <li id="SignINMenu">
+                                    <a href="#" class="cd-signin" data-toggle="modal" data-target="#myModal">SIGN IN</a>
+                                </li>
+                                <li id="SignOutMenu">
+                                    <a href="#">SIGN OUT</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">REGISTRATION<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="profile">COMMUNITY MEMBER</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" id="Registration0" class="cd-signup" data-toggle="modal" data-target="#myModal">BOOKING MEMBER</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">GUIDE</a>
+                                        </li>
+                                        <%--<li>
+                                            <a href="#">Conse ctetur </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="#">Latest</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Archive</a>
+                                                </li>
+                                            </ul>
+                                        </li>--%>
+                                    </ul>
+                                </li>
+
+                                <li id="contactMenu">
+                                    <a href="contact">CONTACTS</a>
+                                </li>
+                                <% string id = "";
+                                    HttpCookie CommunityID = HttpContext.Current.Request.Cookies["CommunityID"];//Output Data 
+                                    if (CommunityID != null)
+                                    {
+                                        id = ""; /*AdminPenalWatchCtg.MyFunctions.DecryptString(CommunityID["Community"].ToString());*/
+                                       if (id.Length == 9)
+                                        {%>
+                                <li id="AdminMenu">
+                                    <a href="#">ADMIN<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span> </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">MY PROFILE</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">REQUEST</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <%}
+                                 } %>
+                                <li>
+                                    <div class="search-form" style="" action="search.php" method="GET" accept-charset="utf-8">
+                                        <label class="search-form_label">
+                                            <input class="search-form_input" type="text" name="s" autocomplete="off" placeholder="" />
+                                            <span class="search-form_liveout"></span>
+                                        </label>
+                                        <button class="search-form_submit fa-search" type="submit"></button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <br />
+                </div>
+
+            </div>
+
+        </header>
+        <%--   <link href="css/nitification.css" rel="stylesheet" />
+        <script src="css/notification.js"></script> 
+            <ul class="nav nav navbar-nav sf-menu" style="background: #C2C2C2; width: 100%">
+                <li><a href="#">Link1</a></li>
+                <li><a href="#">Link2</a></li>
+                <li><a href="#">Link3</a></li>
+                <li id="notification_li">
+                    <a href="#" id="notificationLink">Notifications</a>
+                    <span id="notification_count">3</span>
+
+                    <div id="notificationContainer">
+                        <div id="notificationTitle">Notifications</div>
+                        <div id="notificationsBody" class="notifications"></div>
+                        <div id="notificationFooter"><a href="#">See All</a></div>
+                    </div>
+
+                </li>
+                <li><a href="#">Link4</a></li>
+            </ul> --%>
+        <!-- cd-user-modal -->
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        .<!-- Large modal -->
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            ×</button>
+                        <h4 class="modal-title" id="myModalLabel">Login/Registration - CHBS</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8" style="border-right: 1px dotted #C2C2C2; padding-right: 30px;">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#Login" data-toggle="tab">Login</a></li>
+                                    <li><a href="#Registration" id="Registration1" data-toggle="tab">Uaer Registration</a></li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="Login">
+                                        <div role="form" class="form-horizontal">
+                                            <div class="form-group">
+                                                <p style="font-size: 8pt; margin-left: 15px;">Email</p>
+                                                <div class="col-sm-10">
+                                                    <input type="email" style="width: 100%" id="ULemail" placeholder="Email" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <p style="font-size: 8pt; margin-left: 15px;">Password</p>
+                                                <div class="col-sm-10">
+                                                    <input type="email" style="width: 100%" id="ULpassword" placeholder="Password" />
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-10">
+                                                    <span id="msg" class="message" style="padding: 0px; float: left; margin-top: -10px; color: red; font-weight: bold; font-size: 8pt;">Hello World</span><br />
+                                                    <button type="submit" id="saveLogin" class="btn btn-primary btn-sm" style="padding: 10px 10px 10px 10px;">
+                                                        Submit</button>
+                                                    <a href="javascript:;">Forgot your password?</a>
+                                                    <div id="Remember" style="margin-bottom: 4px;">
+                                                        <input type="checkbox" id="check" style="" />
+                                                        <div class="message" style="margin-left: 15px; display: inline-block">Remember ?</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="Registration">
+                                        <form role="form" class="form-horizontal">
+                                            <div class="form-group">
+
+                                                <div class="col-sm-10">
+                                                    <div class="row">
+                                                        <p style="font-size: 8pt; margin-left: 15px;">Name</p>
+                                                        <div class="col-md-3">
+                                                            <select style="width: 100%; height: 30px" id="UHead">
+                                                                <option>Mr.</option>
+                                                                <option>Ms.</option>
+                                                                <option>Mrs.</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <input type="text" style="width: 100%" id="Uname" placeholder="Name" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-10">
+                                                    <p style="font-size: 8pt;">Email</p>
+                                                    <input type="email" style="width: 100%" id="Uemail" placeholder="Email" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-10">
+                                                    <p style="font-size: 8pt;">Mobile</p>
+                                                    <input type="email" style="width: 100%" id="Umobile" placeholder="Mobile" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-10">
+                                                    <p style="font-size: 8pt;">Password</p>
+                                                    <input type="password" style="width: 100%" id="Upassword" placeholder="Password" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-10">
+                                                    <button type="button" id="saveContinue" style="margin-left: 15px; margin-top: 5px;" class="btn btn-primary btn-sm  paddintLess">
+                                                        Save & Continue</button>
+                                                    <button type="button" class="btn btn-sm paddintLess" hidden="hidden">
+                                                        Cancel</button><br />
+                                                    <br />
+                                                    <span id="msg1" class="message" style="padding: 0px; float: left; margin-top: -10px; color: red; font-weight: bold; font-size: 8pt;">Hello World</span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="OR" class="hidden-xs">
+                                    OR
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row text-center sign-with">
+                                    <div class="col-md-12">
+                                        <h3>Sign in with</h3>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="btn-group btn-group-justified  paddintLess">
+                                            <a href="#" class="btn btn-primary">Facebook</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%-- Chat room --%>
+        <link href="css/chat.css" rel="stylesheet" />
+        <script src="js/chat.js"></script>
+        <div class="panel panel-chat mini">
+            <div class="panel-heading" style="padding: 0px 15px;">
+                <a href="#" class="chatMinimize" onclick="return false"><span style="font-size: 10pt;">Chat with CHBS</span></a>
+                <a href="#" class="chatClose" onclick="return false"><i class="glyphicon glyphicon-remove"></i></a>
+                <div class="clearFix"></div>
+
+            </div>
+
+            <div class="panel-body">
+                <div style="vertical-align: top; color: #efebeb; display: inline-block; float: right; width: 25%; background: #3c3737">
+                    <input type="button" style="cursor: pointer;" id="nameInsert" value=" Set Name " />
+                </div>
+                <div style="vertical-align: top; background: cornsilk; display: inline-block; width: 75%;">
+                    <input type="text" maxlength="22" id="name" placeholder="Enter your Name" style="border: 1px solid #d4d2d2; width: 100%;" />
+                </div>
+
+                <input type="hidden" id="displayname" />
+                <ul id="discussion" style="margin-left: 0px; text-align: -webkit-left;"></ul>
+                <div class="clearFix"></div>
+            </div>
+            <div class="panel-footer">
+                <textarea placeholder="Enter your text" id="message" role="0" cols="0" onfocus="this.value = '';" required=""></textarea>
+            </div>
+        </div>
+        <!--Reference the jQuery library. -->
+        <!--Reference the SignalR library. -->
+        <script src="../Script/jquery.signalR-2.0.0.js"></script>
+        <!--Reference the autogenerated SignalR hub script. -->
+        <script src="/signalr/hubs"></script>
+        <!--Add script to update the page and send messages.-->
+        <script src="../Script/jquery.cookie.js"></script>
+        <script type="text/javascript">
+            $('.search-form_input').focus(function () {
+
+                $('.search-form').css('width', '450px');
+                $('.search-form').css('margin-left', '-350px');
+                $('.search-form').css('background-color', 'White');
+            })
+            $('.search-form_input').focusout(function () {
+                $('.search-form').css('width', '126px');
+                $('.search-form').css('margin-left', '0px');
+                $('.search-form').css('background-color', 'transparent');
+            })
+            $('#nameInsert').click(function () {
+                $("#name").attr('readonly', 'true');
+                $('#message').focus();
+            })
+            $(function () {
+                if ($('.panel-body').attr('height', '250px')) {
+                    $('.panel.panel-chat > .panel-body').hide();
+                    $('.panel.panel-chat > .panel-footer').hide();
+                }
+                // })
+                $("#message").keypress(function (e) {
+                    if (e.keyCode == 13) {
+                        var text = $("#message").val();
+                        var Name = $("#name").val();
+                        if (Name == '')
+                            alert('Set your name.');
+                        else
+                            if (text != '')
+                                $.connection.hub.start().done(function () {
+                                    // Call the Send method on the hub.
+                                    chat.server.send(Name, $('#message').val());
+                                    // Clear text box and reset focus for next comment.
+                                    $('#message').val('').focus();
+                                });
+                        $('#message').focus();
+                    }
+                });
+                // Declare a proxy to reference the hub.
+                var chat = $.connection.chatHub;
+                // Create a function that the hub can call to broadcast messages.
+                chat.client.broadcastMessage = function (name, message) {
+                    // Html encode display name and message.
+                    var encodedName = $('<div />').text(name).html();
+                    var encodedMsg = $('<div />').text(message).html();
+                    // Add the message to the page.
+                    if (encodedName == 'CHBS')
+                        $('#discussion').append('<li style="color: #bb130a; background: #ddd;"><strong>' + encodedName
+                        + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
+                    else
+                        $('#discussion').append('<li style="    float: right;">' + encodedMsg + ' :&nbsp;&nbsp;<strong>' + encodedName + '</strong> </li></br>');
+                };
+                // Get the user name and store it to prepend to messages.
+                //$('#displayname').val(prompt('Enter your name:', ''));
+                // Set initial focus to message input box.
+                $('#message').focus();
+                // Start the connection.
+                $.connection.hub.start().done(function () {
+                    $('#sendmessage').click(function () {
+                        var Name = $("#name").val();
+                        // Call the Send method on the hub.
+                        var text = $("#message").val();
+                        if (Name == '')
+                            alert('Set your name.');
+                        else
+                            if (text != '') {
+                                chat.server.send(Name, $('#message').val());
+                                // Clear text box and reset focus for next comment.
+                                $('#message').text('').focus();
+                            }
+                    });
+                });
+            });
+        </script>
+        <%-- Chat Room End --%>
+
+        <asp:Button ID="txtLotiLongTude" runat="server" Visible="false" />
+        <script>
+            $('#saveContinue').click(function () {
+                var nameHeadREG = $('#UHead').val();
+                var nameREG = $('#Uname').val();
+                var emailREG = $('#Uemail').val();
+                var mobileREG = $('#Umobile').val();
+                var passREG = $('#Upassword').val();
+                if (nameREG == '' || nameREG.length < 4)
+                    alert('Invalid Name !');
+                else if (emailREG == '')
+                    alert('Invalid Email !');
+                else if (mobileREG == '')
+                    alert('Invalid Mobile No. !');
+                else if (passREG == '')
+                    alert('Invalid Password !');
+                else {
+                    var x = nameHeadREG + '|' + nameREG + '|' + emailREG + '|' + mobileREG + '|' + passREG;
+                    $.ajax({
+                        type: "POST",
+                        url: "fight.asmx/UserRegistration",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        data: "{'x':'" + x + "'}",
+                        // data: "{'ui':'x'}",
+                        success: function (data) {
+                            if (data.d == "" || data.d == "false") {
+                                $('#msg1').slideDown(400);
+                                $('#msg1').text("Registration Faild: Something went wrong !");
+                            }
+                            else if (data.d != "true" && data.d != "" && data.d != "false") {
+                                $('#msg').slideDown(400);
+                                $('#msg1').text(data.d);
+                            }
+                            else if (data.d == "true") {
+                                window.location.reload();
+                            }
+                        },
+                        failure: function (response) {
+                            alert('failed');
+                        }
+                    });
+                }
+            })
+            $('#Registration0').click(function () {
+                $('#Registration1').click();
+                $('#Uname').focus();
+            })
+            $('#Registration0').click(function () {
+                $('#Registration1').click();
+                $('#Uname').focus();
+            })
+            $(document).ready(function () {
+                navigator.geolocation.getCurrentPosition(showPosition);
+                function showPosition(position) {
+                    var coordinates = position.coords;
+                    var long = coordinates.longitude;
+                    var loti = coordinates.latitude;
+                    $("#<%=txtLotiLongTude.ClientID %>").val(loti + ", " + long);
+                }
+            });
+
+            $('#saveLogin').click(function (e) {
+                //e.preventDefault();
+                var UI = $('#ULemail').val();
+                var PASS = $('#ULpassword').val();
+                var Checked = "NO";
+                if ($('#check').is(":checked")) {
+                    Checked = "YES";
+                }
+                var data = UI + '|' + PASS;
+                if (UI == '') {
+                    $('#msg').slideDown(400);
+                    $('#msg').text("Email id required !");
+                }
+                else if (PASS == '') {
+                    $('#msg').slideDown(400);
+                    $('#msg').text("Password required !");
+                }
+                else {
+                    $('#msg').hide();
+                    $.ajax({
+                        type: "POST",
+                        url: "fight.asmx/Login",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        data: "{'ui':'" + UI + "','password':'" + PASS + "','remember':'" + Checked + "'}",
+                        // data: "{'ui':'x'}",
+                        success: function (data) {
+                            if (data.d == "missmatch") {
+                                $('#msg').slideDown(400);
+                                $('#msg').text("Login failed: Username / password mismatch !");
+                            }
+                            else if (data.d == "ok") {
+                                $('#msg').slideDown(400);
+                                window.location = '../web/Permission/ui/ChangePassword';
+                            }
+                            else {
+                                $('#msg').slideDown(400);
+                                $('#msg').text(data.d);
+                            }
+                        },
+                        failure: function (response) {
+                            alert('failed');
+                        }
+                    });
+                }
+
+            })
+        </script>
+    </form>
+    <input type="button" id="removeCookie" value="remove" />
+</body>
+</html>

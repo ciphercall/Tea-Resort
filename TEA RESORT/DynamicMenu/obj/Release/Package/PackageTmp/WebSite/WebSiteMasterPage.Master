@@ -1,0 +1,173 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="WebSiteMasterPage.master.cs" Inherits="DynamicMenu.WebSite.WebSiteMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Tea Resort & Museum</title>
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/WebSite/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/WebSite/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/WebSite/css/animate.css">
+    <link rel="stylesheet" href="/WebSite/css/hover.min.css">
+    <link rel="stylesheet" href="/WebSite/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="/WebSite/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="/WebSite/css/bootstrap-datepicker.min.css">
+
+    <link rel="stylesheet" href="/WebSite/css/style.css">
+    <!-- end stylesheets -->
+    <!-- js libray -->
+    <script src="/WebSite/js/jquery-2.1.3.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <!--header start-->
+        <header>
+            <section id="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-3" id="logo">
+                                <a href="/WebSite/Index.aspx">
+                                    <img src="images/logo.png" alt="rs" /></a>
+                                <!--<a href="index.php"><h1>Cloud HMS</h1></a>-->
+                            </div>
+                            <!--left menu-->
+                            <div class="col-md-7 col-xs-12 animated fadeIn" id="leftMenu">
+                                <ul>
+                                    <li><a href="/WebSite/Index.aspx" class="hvr-underline-reveal">Home</a></li>
+                                    <li><a href="/WebSite/About.aspx" class="hvr-underline-reveal">About Us</a></li>
+                                    <li><a href="/WebSite/News.aspx" class="hvr-underline-reveal">News</a></li>
+                                    <li><a href="/WebSite/TeaMuseum.aspx" class="hvr-underline-reveal">Tea Museum</a></li>
+                                    <li><a href="/WebSite/Gallery.aspx" class="hvr-underline-reveal">Gallery</a></li>
+                                    <li><a href="/WebSite/Contact.aspx" class="hvr-underline-reveal">Contact</a></li>
+                                    <!--<li> <a href="#" style="padding: 13px;"><img src="images/facebook.png" alt="facebook"></a></li>-->
+
+                                </ul>
+                            </div>
+                            <!--end left menu-->
+                            <!--menu right-->
+                            <div class="col-md-2 col-xs-10 pull-right text-left" id="rightMenu">
+                                <ul>
+
+                                    <!--<li><a href="#"> Login</a></li>-->
+                                    <!--<li>
+								<a href="https://www.facebook.com/AlchemySoftware" target="_blank"> <i class="fa fa-facebook"></i></a>
+								<a href="https://twitter.com/alchemybd" target="_blank"> <i class="fa fa-twitter"></i></a>
+								<a href="https://plus.google.com/100639053145643474788" target="_blank"> <i class="fa fa-google-plus"></i></a>
+							</li>-->
+                                    <li class="info">
+                                        <span class="number"><i class="fa fa-phone-square"></i> 01749 014 306 </span>
+                                        <br>
+                                        <span class="email">info@tearesort.gov.bd</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--end menu right-->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <br>
+        <!--Top footer section-->
+        <section id="topFooter">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <h3>Contact Us
+                        </h3>
+                        <p>
+                            <i class="fa fa-envelope"></i> tearesort@yahoo.com
+                            <br>
+                            <i class="fa fa-phone"></i> Executive in-Charge +8801712-071502
+                            <br>
+                            <i class="fa fa-phone"></i> Supervisor +8801712-916001
+                            <br>
+                            <i class="fa fa-phone"></i> Booking Asst: +8801749-014306
+                        </p>
+                        <p class="social">
+                            <a href="https://www.facebook.com/tearesort" target="_blank">
+                                <i class="gdlr-icon fa fa-facebook-square"></i></a> 
+                            <a href="http://tearesort.gov.bd/" target="_blank"><i class="gdlr-icon fa fa-twitter-square"></i></a> 
+                            <a href="http://tearesort.gov.bd/" target="_blank"><i class="gdlr-icon fa fa-linkedin-square"></i></a> 
+                            <a href="http://tearesort.gov.bd/" target="_blank"><i class="gdlr-icon fa fa-google-plus-square"></i></a> 
+                            <a href="http://tearesort.gov.bd/" target="_blank"><i class="gdlr-icon fa fa-pinterest-square"></i></a> 
+                            <a href="http://tearesort.gov.bd/" target="_blank"><i class="gdlr-icon fa fa-flickr"></i></a>
+                        </p>
+
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Address
+                        </h3>
+                        <p>
+                            TEA RESORT & MUSEUM
+                            <br>
+                            Bangladesh Tea Board,
+                            <br>
+                            Srimongal, Moulvibazar
+                            <br>
+                            Everyday 9:00AM-6:00PM
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <h3 align="center">We Accept</h3>
+                        <div class="payments-method">
+                            <img src="/WebSite/images/payment-methods/american_express.png" alt="">
+                            <img src="/WebSite/images/payment-methods/visa.png" alt="">
+                            <img src="/WebSite/images/payment-methods/master.png" alt="">
+                        </div>
+
+                        <p style="margin-top: 8px; line-height: 20px;" align="center">
+                            Payment Supports
+                            <br>
+                            Hotline: 0181000000
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+            <br />
+        </section>
+        <!--end top footer-->
+        <!--footer part-->
+        <footer>
+            <section id="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Developed By : <a href="http://www.alchemy-bd.com" target="_blank">Alchemy Software</a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+        <!--end footer part-->
+        <a href="#" id="backToTop">
+            <i data-toggle="tooltip" data-placement="top" title="Go to top"
+                class="fa  fa-chevron-circle-up fa-2x" style="color: #1dc1f8;"></i></a>
+        <!-- other scripts -->
+        <script src="/WebSite/js/bootstrap.min.js"></script>
+        <script src="/WebSite/owl-carousel/owl.carousel.js"></script>
+        <script src="/WebSite/js/jquery.cookie.js"></script>
+        <script src="/WebSite/js/bootstrap-datepicker.min.js"></script>
+        <script src="/WebSite/js/pano.min.js"></script>
+        <script src="/WebSite/js/functions.js"></script>
+        <!-- end other scripts -->
+    </form>
+</body>
+</html>
